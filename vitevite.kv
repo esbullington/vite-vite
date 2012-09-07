@@ -1,0 +1,198 @@
+#: import sm kivy.uix.screenmanager
+#: import log kivy.logger.Logger
+
+###################################
+##
+##  SCREEN TEMPLATE
+##
+###################################
+
+## This template describes the layout of each application screen
+<AppScreen>:
+    ScrollView:
+        FloatLayout:
+            #Make sure there is no horizontal scroll bar
+            do_scroll_y: False
+            canvas:
+                Color:
+                    rgb: 255,255,255
+                Rectangle:
+                    size: self.size
+                Color:
+                    rgba: 0,0,0,1
+                Line:
+                    points: self.x + 15, self.top - self.height/8, self.width - 15, self.top -self.height/8
+            Label:
+                id: root.name
+                text: root.header
+                size_hint: 1, .2
+                pos_hint: {'y': .82 }
+                font_size: 15
+                color: 0,0,0,1
+
+#####################################
+##
+##  SPINNER MODS
+##
+#####################################
+
+## This is a modification of the original spinner widget
+## It better corresponds to Android style requirements
+<AppSpinner>:
+    color: 255,255,255,.85
+    font_size: 16
+    background_color: 0,0,0,1
+    on_press: if not self.is_open: self.background_color = 0,0,0,255,1  
+    on_release: self.background_color = 0,0,0,1
+    size_hint: None, 1
+    width: 220
+    canvas.after:
+        Color:
+            rgb: 255,255,255,.8
+        Triangle:
+            points: self.right, self.center_y,self.right-16,self.center_y, self.right - 8, self.center_y - 8
+ 
+<SpinnerOption>:
+    background_color: 0,0,0,1
+    color: 255,255,255,.85
+    font_size: 16
+    size_hint_y: None
+    height: 100 
+
+<AppDropDown>:
+    auto_width: False
+    size_hint: None, None
+    width: 300
+
+
+## Widget mix-ins
+## These mix-ins are described in main.py
+#
+<ImageButton>:
+    width: self.texture_size[0]
+    button_grab: True
+
+<BoxButton>:
+    button_grab: True
+
+BoxLayout:
+    id: toolkit
+    orientation: 'vertical'
+    height: 800
+    width: 480
+    AnchorLayout:
+        anchor_y: 'top'
+        size_hint: 1, .1
+        GridLayout:
+            size_hint: 1, 1
+            cols: 3
+            rows: 1
+            BoxLayout:
+                size_hint: None, 1
+                width: 90
+                orientation: 'horizontal'
+                ImageButton:
+                    canvas:
+                        Color:
+                            rgba: 255,255,255,.8
+                        Line:
+                            points: self.x,self.y,self.x,self.y+self.height
+                    on_press: screen_manager.current = screen_manager.previous()
+                    source: 'assets/drawable-mdpi/1-navigation-previous-item.png'
+            AppSpinner:
+                id: screen_menu
+                text: screen_manager.current
+                values: screen_manager.screen_names
+            AnchorLayout:
+                anchor_x: 'right'
+                BoxLayout:
+                    size_hint: None, 1
+                    width: 75
+                    spacing: 30
+                    orientation: 'horizontal'
+                    ImageButton:
+                        on_press: screen_manager.current = 'Help Screen'
+                        source: 'assets/drawable-mdpi/2-action-help.png'
+                        canvas:
+                            Color:
+                                rgba: 255,255,255,.8
+                            Line:
+                                points: self.x,self.y,self.x,self.y+self.height
+    ScreenManager:
+        transition: sm.SlideTransition()
+        id: screen_manager
+        current: screen_menu.text
+
+        HelpScreen:
+            id: screen1
+            header: self.specialvar
+            name: 'Help Screen'
+        MainScreen:
+            id: screen2
+            header: "This is the main screen header"
+            name: 'Main Screen'
+        ContentScreen:
+            id: screen3
+            header: "This is the content screen"
+            name: 'Content Screen'
+        EditScreen:
+            id: screen4
+            header: "This is the edit screen"
+            name: 'Edit Screen'
+        AddScreen:
+            id: screen5
+            header: "This is the add screen"
+            name: 'Add Screen'
+
+    # If the code below seems repetitive, it is.  I wish there were an easy way to fix it.
+    # The problem is that I can't use Kivy templates because I use dynamic property values
+    AnchorLayout:
+        id: bottom_anchor
+        anchor_y: 'bottom'
+        size_hint: 1, .2
+        BoxLayout:
+            size_hint: 1,1
+            orientation: 'horizontal'
+            BoxButton:
+                orientation: 'vertical'
+                spacing: -5
+                padding: 10
+                on_press: screen_manager.current = 'Content Screen'
+                canvas:
+                    Color:
+                        rgba: 255,255,255,.8
+                    Line:
+                        points: self.x+self.width,self.y,self.x+self.width,self.y+self.height
+                Image:
+                    source: 'assets/drawable-hdpi/4-collections-collection.png'
+                Label:
+                    text: 'Contents Screen' 
+            BoxButton:
+                orientation: 'vertical'
+                spacing: -5
+                padding: 10
+                on_press: screen_manager.current = 'Add Screen'
+                canvas:
+                    Color:
+                        rgba: 255,255,255,.8
+                    Line:
+                        points: self.x+self.width,self.y,self.x+self.width,self.y+self.height
+                Image:
+                    source: 'assets/drawable-hdpi/5-content-new.png'
+                Label:
+                    text: 'Add Content' 
+            BoxButton:
+                orientation: 'vertical'
+                spacing: -5
+                padding: 10
+                on_press: screen_manager.current = 'Edit Screen'
+                Image:
+                    source: 'assets/drawable-hdpi/5-content-edit.png'
+                Label:
+                    text: 'Edit Screen' 
+
+
+    # AppMenu:
+    #     id: app_menu
+    #     text: screen_manager.current
+    #     values: screen_manager.screen_names

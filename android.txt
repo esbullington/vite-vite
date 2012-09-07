@@ -1,0 +1,3 @@
+title=Vite Vite
+author=Eric S. Bullington
+orientation=portrait

@@ -1,0 +1,11 @@
+# Byte code #
+#############
+*.pyo
+*.pyc
+
+
+# Local config files #
+######################
+local.*
+
+

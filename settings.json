@@ -1,0 +1,17 @@
+[
+    { "type": "title",
+    "title": "Test application" },
+
+    { "type": "options",
+    "title": "My first key",
+    "desc": "Description of my first key",
+    "section": "section1",
+    "key": "key1",
+    "options": ["value1", "value2", "another value"] },
+
+    { "type": "numeric",
+    "title": "My second key",
+    "desc": "Description of my second key",
+    "section": "section1",
+    "key": "key2" }
+]
