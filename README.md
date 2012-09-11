@@ -1,4 +1,4 @@
-Vite Vite for Kivy was conceived as a kind of Bootstrap for Kivy, the phenomenal new Python GUI framework for mobile and desktop. The goal of this project is to create a toolkit of attractive, reusable components that will make Kivy app development faster and easier.  At the moment, Vite Vite is confined to Android components, but other platforms may eventually be added. 
+Vite Vite for Kivy was conceived as a kind of Bootstrap project for Kivy, the fantastic new Python GUI framework for mobile and desktop. The goal of this project is to create a toolkit of attractive, reusable components that will make Kivy app development faster and easier.  At the moment, Vite Vite is confined to Android components, but other platforms may eventually be added. 
 
 ## Installation
 For convenience, I've already created a build script for Vite Vite on Linux. This script builds an installable apk package from the base Vite Vite app (main.py and its dependencies) and optionally installs the package to your Android device.  To use this script, you must first set up the Android SDK and Kivy.  Once you have this environment configured, enter the appropriate settings in the `build.cfg` file in the root directory.  Then run the `build.sh` shell script.
@@ -26,7 +26,7 @@ This flag tells the script to install the finished package to your attached andr
 Builds a release Android package using the settings indicated in myconfig.cfg and installs it to the attached Android device. 
 
 ## License
-Copyright (c) 2012 Eric S. Bullington
+Copyright (c) 2012 Eric S. Bullington  
 www.ericbullington.com
 
 Vite Vite is licensed under the terms of the MIT license.
