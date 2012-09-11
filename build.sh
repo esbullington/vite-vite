@@ -1,8 +1,6 @@
 #!/bin/bash
 
 
-BUILD_FLAG=debug
-
 usage()
 {
     cat << EOF
@@ -10,11 +8,13 @@ usage()
 
 OPTIONS:
    -h      Show this message
-   -b      Build Flag
-   -c      Config File
+   -b      Build Flag (debug or release)
+   -c      Config File (default is build.cfg)
+   -a      Install to connected Android device
 EOF
 }
 
+ROOT_DIR=$PWD
 BUILD_FLAG=debug
 CONFIG_FILE=
 INSTALL_FLAG=false
@@ -46,4 +46,4 @@ if $INSTALL_FLAG ; then
     adb uninstall $PACKAGE_NAME 
     adb install $PYTHON_FOR_ANDROID_DIR/dist/default/bin/$APP_NAME-$VERSION-$BUILD_FLAG.apk
 fi
-cp $PYTHON_FOR_ANDROID_DIR/dist/default/bin/$APP_NAME-$VERSION-$BUILD_FLAG.apk bin/
+cp $PYTHON_FOR_ANDROID_DIR/dist/default/bin/$APP_NAME-$VERSION-$BUILD_FLAG.apk $ROOT_DIR/bin
