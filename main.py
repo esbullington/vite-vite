@@ -206,7 +206,7 @@ class ViteViteApp(App):
 
     def on_start(self):
         if PLATFORM in ('windows','linux','osx'):
-            self._app_window.size = 480,600
+            self._app_window.size = 400,600
 
 
 if __name__ in ('__main__', '__android__'):
