@@ -17,8 +17,10 @@ The script takes the following optional flags and values:
 
 
 **Example**
-./build.sh -c myconfig.cfg -b release -a
-    Builds a release Android package using the settings indicated in myconfig.cfg and installs it to the attached Android device. 
+
+`./build.sh -c myconfig.cfg -b release -a`
+
+Builds a release Android package using the settings indicated in myconfig.cfg and installs it to the attached Android device. 
 
 ## License
 
