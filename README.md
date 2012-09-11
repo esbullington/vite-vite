@@ -25,10 +25,6 @@ This flag tells the script to install the finished package to your attached andr
 
 Builds a release Android package using the settings indicated in myconfig.cfg and installs it to the attached Android device. 
 
-## Acknowledgements
-A huge thank you goes out to the small group of developers who brought Kivy to life, and to the BDFL
-for inventing such a flexible and enjoyable programming language.
-
 ## License
 Copyright (c) 2012 Eric S. Bullington
 www.ericbullington.com
@@ -36,3 +32,7 @@ www.ericbullington.com
 Vite Vite is licensed under the terms of the MIT license.
 
 Android icons selected from Google's Android_Design_Downloads pack and used under the terms from the pack's NOTICE.txt.
+
+## Acknowledgements
+A huge thank you goes out to the small group of developers who brought Kivy to life, and to the BDFL
+for inventing such a flexible and enjoyable programming language.
