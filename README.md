@@ -9,7 +9,7 @@ The script takes the following optional flags and values:
 **-c**
     Pass a configuration FILE other than the default `build.cfg`.
     
-**-b**  
+**-b**
     Takes a BUILD value of either `debug` or `release`.
     
 **-a**
@@ -23,5 +23,9 @@ The script takes the following optional flags and values:
 Builds a release Android package using the settings indicated in myconfig.cfg and installs it to the attached Android device. 
 
 ## License
+Copyright (c) 2012 Eric S. Bullington
+www.ericbullington.com
 
-This framework is licensed under the terms of the MIT license.
+Vite Vite is licensed under the terms of the MIT license.
+
+Android icons selected from Google's Android_Design_Downloads pack and used under the terms from the pack's NOTICE.txt.
