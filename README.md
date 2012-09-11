@@ -7,18 +7,16 @@ For convenience, I've already created a build script for Vite Vite on Linux. Thi
 The script takes the following optional flags and values:
 
 **-c**
-
     Pass a configuration FILE other than the default `build.cfg`.
     
 **-b**  
     Takes a BUILD value of either `debug` or `release`.
     
 **-a**
-
     This flag tells the script to install the finished package to your attached android device using `adb install`.
-    
 
-Example
+
+**Example**
 ./build.sh -c myconfig.cfg -b release -a
     Builds a release Android package using the settings indicated in myconfig.cfg and installs it to the attached Android device. 
 
